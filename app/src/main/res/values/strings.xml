@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RouteOptimizer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_route">RouteActivity</string>
+    <string-array name="terminals">
+        <item>Alfaset, 3. Industrivei 25</item>
+        <item>Trondheim</item>
+        <item>Bergen</item>
+    </string-array>
+
+</resources>

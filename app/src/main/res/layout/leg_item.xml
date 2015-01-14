@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/textViewFrom"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:text="Fra:"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/textViewOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alfaset"
+        android:layout_toRightOf="@id/textViewFrom"
+        android:layout_marginLeft="10dp"
+       />
+
+    <TextView
+        android:id="@+id/textViewTo"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:text="Til:"
+        android:textStyle="bold"
+        android:layout_below="@id/textViewFrom"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/textViewDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Antenneveien 26, 1154 Oslo"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/textViewOrigin"
+        android:layout_toRightOf="@id/textViewTo"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200km"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@id/textViewDestination"
+        android:layout_below="@id/textViewDestination"/>
+
+    <TextView
+        android:id="@+id/textViewDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6h 50m"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/textViewDestination"
+        android:layout_toRightOf="@id/textViewDistance"
+        android:layout_marginTop="5dp"/>
+</RelativeLayout>

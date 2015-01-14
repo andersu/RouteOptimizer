@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity$PlaceholderFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutChooseOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/textViewOrigin"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Fra:"
+
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutChooseDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_below="@id/linearLayoutChooseOrigin">
+        <TextView
+            android:id="@+id/textViewDestination"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Til:"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Spinner
+            android:id="@+id/spinnerDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAddAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutChooseDestination"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/textViewVia"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Via:"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+        <EditText
+            android:id="@+id/editTextNewAddress"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Ny adresse"/>
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/editTextNewAddress"
+            android:layout_marginLeft="5dp"
+            android:text="Legg til"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewAddresses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutAddAddress"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/buttonCalculateRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beregn rute"
+        android:layout_below="@id/listViewAddresses"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
