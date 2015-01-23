@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -16,7 +17,7 @@ import no.postnord.routeoptimizer.model.Route;
 import no.postnord.routeoptimizer.util.MapUtil;
 
 @EActivity(R.layout.activity_map)
-public class MapActivity extends Activity implements OnMapReadyCallback {
+public class MapActivity extends Activity implements OnMapReadyCallback, GoogleMap.OnCameraChangeListener {
 
 	@FragmentById(R.id.fragment_map)
 	MapFragment fragmentMap;
@@ -24,14 +25,24 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
 	@Extra
 	Route route;
 
+	private GoogleMap map;
+
 	@AfterViews
-	void addRouteLegsFragment() {
+	void getMap() {
 		fragmentMap.getMapAsync(this);
 	}
 
 	@Override
 	public void onMapReady(GoogleMap map) {
+		this.map = map;
+		map.setOnCameraChangeListener(this);
+
 		MapUtil.addMarkers(map, route);
 		MapUtil.drawPolyLines(map, route);
+	}
+
+	@Override
+	public void onCameraChange(CameraPosition cameraPosition) {
+		MapUtil.moveCamera(map, route.getBounds());
 	}
 }

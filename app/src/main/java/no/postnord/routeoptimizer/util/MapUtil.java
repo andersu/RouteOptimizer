@@ -21,10 +21,6 @@ public class MapUtil {
 	public static void drawPolyLines(GoogleMap map, Route route) {
 		List<LatLng> points = decodePoly(route.getOverviewPolyline().getPoints());
 
-		int padding = 100; // offset from edges of the map in pixels
-		CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(getLatLngBounds(route.getBounds()), padding);
-		map.moveCamera(cu);
-
 		for (int i = 0; i < points.size() - 1; i++) {
 			LatLng src = points.get(i);
 			LatLng dest = points.get(i + 1);
@@ -76,6 +72,12 @@ public class MapUtil {
 		}
 
 		return poly;
+	}
+
+	public static void moveCamera(GoogleMap map, Bounds bounds) {
+		int padding = 100; // offset from edges of the map in pixels
+		CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(MapUtil.getLatLngBounds(bounds), padding);
+		map.moveCamera(cu);
 	}
 
 	private static LatLngBounds getLatLngBounds(Bounds bounds) {

@@ -34,6 +34,8 @@ public class RouteLegsActivity extends FragmentActivity implements OnMapReadyCal
 	@ViewById
 	ImageButton imageButtonShowMap;
 
+	private boolean mapIsReady;
+
 	@AfterViews
 	void addRouteLegsFragment() {
 		if (fragmentMap != null) {
@@ -54,6 +56,7 @@ public class RouteLegsActivity extends FragmentActivity implements OnMapReadyCal
 
 	@Override
 	public void onMapReady(GoogleMap map) {
+		mapIsReady = true;
 		MapUtil.addMarkers(map, route);
 		MapUtil.drawPolyLines(map, route);
 	}

@@ -7,6 +7,7 @@ import org.androidannotations.annotations.FragmentById;
 
 import no.postnord.routeoptimizer.R;
 import no.postnord.routeoptimizer.model.DirectionResponse;
+import no.postnord.routeoptimizer.model.Route;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
@@ -15,8 +16,10 @@ public class MainActivity extends Activity {
 	CreateRouteFragment fragmentCreateRoute;
 
 	public void showResult(DirectionResponse result) {
-		RouteLegsActivity_.intent(this).route(result.getRoutes().get(0)).start();
-		fragmentCreateRoute.moveCarButton();
+		Route route = result.getRoutes().get(0);
+		if (route != null) {
+			RouteLegsActivity_.intent(this).route(route).start();
+			fragmentCreateRoute.moveCarButton();
+		}
 	}
-
 }
