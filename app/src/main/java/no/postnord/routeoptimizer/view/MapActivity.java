@@ -19,6 +19,8 @@ import no.postnord.routeoptimizer.util.MapUtil;
 @EActivity(R.layout.activity_map)
 public class MapActivity extends Activity implements OnMapReadyCallback, GoogleMap.OnCameraChangeListener {
 
+	boolean firstCameraChange = true;
+
 	@FragmentById(R.id.fragment_map)
 	MapFragment fragmentMap;
 
@@ -43,6 +45,9 @@ public class MapActivity extends Activity implements OnMapReadyCallback, GoogleM
 
 	@Override
 	public void onCameraChange(CameraPosition cameraPosition) {
-		MapUtil.moveCamera(map, route.getBounds());
+		if (firstCameraChange) {
+			MapUtil.moveCamera(map, route.getBounds());
+			firstCameraChange = false;
+		}
 	}
 }

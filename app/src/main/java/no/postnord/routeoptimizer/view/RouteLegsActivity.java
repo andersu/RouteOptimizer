@@ -59,6 +59,7 @@ public class RouteLegsActivity extends FragmentActivity implements OnMapReadyCal
 		mapIsReady = true;
 		MapUtil.addMarkers(map, route);
 		MapUtil.drawPolyLines(map, route);
+		MapUtil.moveCamera(map, route.getBounds());
 	}
 
 	@Click
