@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">RouteOptimizer</string>
+    <string name="app_name">Optimal rute</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_route">RouteActivity</string>
+    <string name="title_activity_route">Rute</string>
 
     <string-array name="terminals">
         <item>Alfaset, 3. Industrivei 25</item>
@@ -13,6 +13,6 @@
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_map">Kart</string>
 
 </resources>
