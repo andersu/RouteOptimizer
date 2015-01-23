@@ -1,14 +1,23 @@
 package no.postnord.routeoptimizer.model;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Leg implements Serializable {
 	private TextValue distance;
 	private TextValue duration;
 	private String start_address;
 	private String end_address;
+
+	@SerializedName("start_location")
+	private Point startLocation;
+
+	@SerializedName("end_location")
+	private Point endLocation;
+
+	private List<Step> steps;
 
 	public TextValue getDistance() {
 		return distance;
@@ -42,13 +51,27 @@ public class Leg implements Serializable {
 		this.end_address = end_address;
 	}
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this)
-				.append("distance", distance)
-				.append("duration", duration)
-				.append("start_address", start_address)
-				.append("end_address", end_address)
-				.toString();
+	public List<Step> getSteps() {
+		return steps;
+	}
+
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
+	}
+
+	public Point getStartLocation() {
+		return startLocation;
+	}
+
+	public void setStartLocation(Point startLocation) {
+		this.startLocation = startLocation;
+	}
+
+	public Point getEndLocation() {
+		return endLocation;
+	}
+
+	public void setEndLocation(Point endLocation) {
+		this.endLocation = endLocation;
 	}
 }

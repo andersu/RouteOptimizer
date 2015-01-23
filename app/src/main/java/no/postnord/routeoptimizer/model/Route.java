@@ -1,13 +1,26 @@
 package no.postnord.routeoptimizer.model;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Route {
+public class Route implements Serializable {
+	private Bounds bounds;
     private List<Leg> legs;
 
-    public List<Leg> getLegs() {
+	@SerializedName("overview_polyline")
+	private Polyline overviewPolyline;
+
+	public Bounds getBounds() {
+		return bounds;
+	}
+
+	public void setBounds(Bounds bounds) {
+		this.bounds = bounds;
+	}
+
+	public List<Leg> getLegs() {
         return legs;
     }
 
@@ -15,11 +28,11 @@ public class Route {
         this.legs = legs;
     }
 
+	public Polyline getOverviewPolyline() {
+		return overviewPolyline;
+	}
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this)
-				.append("legs", legs)
-				.toString();
+	public void setOverviewPolyline(Polyline overviewPolyline) {
+		this.overviewPolyline = overviewPolyline;
 	}
 }

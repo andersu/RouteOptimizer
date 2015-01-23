@@ -15,12 +15,13 @@
 
     <ImageView
         android:id="@+id/imageViewDelete"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:src="@drawable/ic_delete"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:tint="@color/red"
         />
 
 </RelativeLayout>

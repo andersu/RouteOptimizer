@@ -1,27 +1,26 @@
 package no.postnord.routeoptimizer.view;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Extra;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
+import java.io.Serializable;
 import java.util.List;
 
 import no.postnord.routeoptimizer.R;
 import no.postnord.routeoptimizer.adapter.LegListAdapter;
 import no.postnord.routeoptimizer.model.Leg;
 
-@EActivity(R.layout.activity_route)
-public class RouteActivity extends Activity {
+@EFragment(R.layout.fragment_route_legs)
+public class RouteLegsFragment extends Fragment {
 
-	@Extra("legs")
-	List<Leg> legs;
-
+	@FragmentArg("legs")
+	Serializable legs;
 
 	@ViewById
 	ListView listViewLegs;
@@ -29,14 +28,9 @@ public class RouteActivity extends Activity {
 	@Bean
 	LegListAdapter legListAdapter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
 	@AfterViews
 	void initViews() {
 		listViewLegs.setAdapter(legListAdapter);
-		legListAdapter.setLegs(legs);
+		legListAdapter.setLegs((List<Leg>) legs);
 	}
 }

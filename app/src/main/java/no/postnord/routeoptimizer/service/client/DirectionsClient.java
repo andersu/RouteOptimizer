@@ -7,22 +7,23 @@ import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 import org.androidannotations.annotations.UiThread;
 
-import no.postnord.routeoptimizer.view.MainActivity;
+import no.postnord.routeoptimizer.view.CreateRouteFragment;
 import no.postnord.routeoptimizer.model.DirectionResponse;
 import no.postnord.routeoptimizer.service.DirectionsService;
+import no.postnord.routeoptimizer.view.MainActivity;
 import retrofit.RestAdapter;
 
 @EBean
 public class DirectionsClient {
 
     @RootContext
-    MainActivity activity;
+	MainActivity context;
 
 	private ProgressDialog progressDialog;
 
 	@UiThread
 	void showProgressDialog() {
-		progressDialog = ProgressDialog.show(activity, "Ruteberegning", "Beregner rute");
+		progressDialog = ProgressDialog.show(context, "Ruteberegning", "Beregner rute");
 	}
 
     @Background
@@ -41,6 +42,6 @@ public class DirectionsClient {
     @UiThread
     void updateUI(DirectionResponse result) {
 		progressDialog.dismiss();
-        activity.showResult(result);
+        context.showResult(result);
     }
 }
